@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Tennis</title>
+</head>
+<body>
+<!DOCTYPE html>
+            <html>
+              <head>
+                <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+              </head>
+              <body>
+				<div class="tennis">
+                <h1 >Welcome to the Tennis Match</h1>
+                <form method="post" action="">
+                  <label for="player">Select Player</label>
+					<select name="player" id="player" >
+						<option value="Players">Select Player</option>
+						<option value="Player1">Player1</option>
+						<option value="Player2">Player2</option>
+					</select>
+                  <input type="submit" value="submit">
+                </form>
+               <div class="tennis-stats">
+        <h2>Stats of Tennis:</h2>
+        <p>Player 1 Score: <span th:text="${player1_score}"></span></p>
+        <p>Player 2 Score: <span th:text="${player2_score}"></span></p>
+        <p>Player 1 Game Score: <span th:text="${player1_GameScore}"></span></p>
+        <p>Player 2 Game Score: <span th:text="${player2_Gamescore}"></span></p>
+        <p>Player 1 Set Score: <span th:text="${player1_Setscore}"></span></p>
+        <p>Player 2 Set Score: <span th:text="${player2_Setscore}"></span></p>
+        <p>Player 1 Match Score: <span th:text="${player1_MatchScore}"></span></p>
+        <p>Player 2 Match Score: <span th:text="${player2_MatchScore}"></span></p>
+    </div>
+	<div>
+    <h2>Playback Match Data</h2>
+    <form method="post" action="">
+        <label for="matchId">Enter Match ID:</label>
+        <input type="text" id="matchId" name="matchId">
+        <input type="submit" value="Playback">
+    </form>
+</div>
+<!--<div>-->
+<!--        <table>-->
+<!--            <thead>-->
+<!--                <tr>-->
+<!--                    <th>Match ID</th>-->
+<!--                    <th>Player 1 Match Score</th>-->
+<!--                    <th>Player 2 Match Score</th>-->
+<!--                     Add more headers as needed -->
+<!--                </tr>-->
+<!--            </thead>-->
+<!--            <tbody>-->
+<!--                <tr th:each="matchData : ${playbackMatchData}">-->
+<!--                    <td th:text="${matchData.matchId}"></td>-->
+<!--                    <td th:text="${matchData.player1_MatchScore}"></td>-->
+<!--                    <td th:text="${matchData.player2_MatchScore}"></td>-->
+<!--                </tr>-->
+<!--            </tbody>-->
+<!--        </table>-->
+<!--    </div>-->
+    <div>
+        <h2>Playback Point Data</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Point ID</th>
+                    <th>Match ID</th>
+                    <th>Player 1 Score</th>
+                    <th>Player 2 Score</th>
+                    <th>Player 1 Game Score</th>
+                    <th>Player 2 Game Score</th>
+                    <th>Player 1 Set Score</th>
+                    <th>Player 2 Set Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="pointData : ${playbackPointData}">
+                    <td th:text="${pointData.pointId}"></td>
+                    <td th:text="${pointData.matchId}"></td>
+                    <td th:text="${pointData.player1Score}"></td>
+                    <td th:text="${pointData.player2Score}"></td>
+                    <td th:text="${pointData.player1gameScore}"></td>
+                    <td th:text="${pointData.player2gameScore}"></td>
+                    <td th:text="${pointData.player1setScore}"></td>
+                    <td th:text="${pointData.player2setScore}"></td>
+                </tr>
+            </tbody>
+        </table>
+	<div>
+
+    <h2>Delete Match Data</h2>
+    <form method="post" action="">
+        <label for="deleteMatchId">Enter Match ID:</label>
+        <input type="text" id="deleteMatchId" name="deleteMatchId">
+        <input type="submit" name="deleteMatch" value="Delete Match">
+    </form>
+</div>
+
+              </body>
+            </html>
+</body>
+</html>
